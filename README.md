@@ -10,6 +10,32 @@
 
 ### Usage
 
+Extend `zod` with a custom module, like `src/zod.ts` in your project:
+
 ```ts
-import zodFile from 'zod-file'
+export * from 'zod'
+export * from 'zod-file'
+```
+
+Use it in your schema:
+
+```ts
+import * as z from './zod'
+
+const User = z.object({
+  avatar: z.base64(),
+})
+
+const parsedUser = User.parse({
+  // Pass a buffer or a base64 string.
+  avatar: fs.readFileSync('avatar.png'),
+})
+
+// Receive a base64 string.
+const base64Avatar = parsedUser.avatar
+
+// Invalid base64 strings will throw.
+User.parse({
+  avatar: 'not base64',
+})
 ```
