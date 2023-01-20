@@ -1,0 +1,32 @@
+{
+  "name": "zod-file",
+  "version": "1.0.0",
+  "description": "Binary and base64 validators",
+  "author": "Alec Larson",
+  "license": "MIT",
+  "repository": "alloc/zod-file",
+  "main": "dist/zod-file.js",
+  "module": "dist/zod-file.mjs",
+  "types": "dist/zod-file.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup-node --sourcemap --watch",
+    "build": "tsup-node",
+    "lint": "tsc -p . --noEmit",
+    "prepare": "yarn build"
+  },
+  "devDependencies": {
+    "@alloc/prettier-config": "^1.0.0",
+    "prettier": "^2.8.0",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.3",
+    "vitest": "^0.25.3",
+    "zod": "^3.20.2"
+  },
+  "prettier": "@alloc/prettier-config",
+  "dependencies": {
+    "@types/node": "^18.11.18"
+  }
+}
